@@ -6,7 +6,7 @@ Plain HTML and CSS, no build step. Served by GitHub Pages from the `master` bran
 
 ## Editing
 
-- `index.html` — all page content (services, selected work, engagement terms, principal, contact) and the JSON-LD business schema.
+- `index.html` — all page content (services, experience, engagement terms, lead engineer, contact) and the JSON-LD business schema.
 - `style.css` — design tokens (`:root`), light/dark themes, layout.
 - `404.html` — not-found page.
 - `favicon.svg` — tab icon.

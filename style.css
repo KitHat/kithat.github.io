@@ -267,7 +267,7 @@ nav[aria-label="Primary"] .nav-cta { color: var(--accent); }
   text-transform: uppercase; color: var(--accent-strong); margin-bottom: 10px;
 }
 .term dd { margin: 0; color: var(--text-muted); font-size: 15.5px; }
-.principal-name { font-size: 18px; }
+.lead-name { font-size: 18px; }
 abbr[title] { text-decoration: none; }
 
 /* ---------- Badge & legal footer ---------- */

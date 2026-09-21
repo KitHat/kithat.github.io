@@ -27,7 +27,7 @@
     "email": "nikita.khateev@gmail.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Yerevan", "addressCountry": "AM" },
     "areaServed": "Worldwide",
-    "founder": { "@type": "Person", "name": "Nikita Khateev", "jobTitle": "Principal engineer", "sameAs": "https://github.com/KitHat" },
+    "founder": { "@type": "Person", "name": "Nikita Khateev", "jobTitle": "Lead engineer", "sameAs": "https://github.com/KitHat" },
     "knowsAbout": ["Smart contracts", "Solidity", "Rust", "Polkadot SDK", "Substrate", "XCM", "Solana", "Fully Homomorphic Encryption", "Blockchain security"],
     "sameAs": ["https://github.com/KitHat"]
   }
@@ -44,9 +44,9 @@
       </a>
       <nav aria-label="Primary">
         <a href="#services">Services</a>
-        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
         <a href="#engagement">Engagement</a>
-        <a href="#principal">Principal</a>
+        <a href="#about">About</a>
         <a class="nav-cta" href="#contact">Contact</a>
       </nav>
     </div>
@@ -70,7 +70,7 @@
         <ul class="facts" aria-label="Highlights">
           <li><strong>Est. 2022</strong><span>individual entrepreneur, Republic of Armenia</span></li>
           <li><strong>2018</strong><span>building on blockchains since</span></li>
-          <li><strong>OpenZeppelin</strong><span>client since 2023</span></li>
+          <li><strong>Polkadot · EVM · Solana</strong><span>ecosystems delivered to</span></li>
         </ul>
       </div>
     </section>
@@ -94,7 +94,7 @@
           </article>
           <article class="card">
             <h3>Security review &amp; hardening</h3>
-            <p>Code review, threat modelling and test coverage ahead of a formal audit. Practices shaped by long-term work for OpenZeppelin's Secure Development team, applied to client codebases.</p>
+            <p>Code review, threat modelling and test coverage ahead of a formal audit. Practices shaped by years of secure-development work on audited open-source libraries, applied to client codebases.</p>
             <ul class="tags"><li>Code review</li><li>Threat modelling</li><li>Test design</li><li>Audit prep</li></ul>
           </article>
           <article class="card">
@@ -106,70 +106,66 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="work">
+    <section class="section section-alt" id="experience">
       <div class="wrap">
         <div class="section-head">
-          <h2>Selected work</h2>
-          <p>Public, open-source deliverables. References for private engagements are available on request.</p>
+          <h2>Experience</h2>
+          <p>Representative engagements, most of them open source. Client names and references are available on request.</p>
         </div>
         <ol class="work-list">
           <li class="work-item">
             <div class="work-meta">
-              <span class="org">OpenZeppelin</span>
+              <span class="org">Polkadot</span>
               <span class="years">2023 – present</span>
             </div>
             <div class="work-body">
-              <h3><a href="https://github.com/OpenZeppelin/polkadot-runtime-templates" target="_blank" rel="noopener">Polkadot Runtime Templates ↗</a></h3>
-              <p>Core contribution to the audited parachain runtime templates: EVM and Ethereum pallets, the EVM RPC layer, the contract-migration guide, and ongoing maintenance of the deterministic build pipeline across Polkadot SDK upgrades.</p>
-              <ul class="tags"><li>Rust</li><li>Polkadot SDK</li><li>Frontier</li><li>30+ PRs</li></ul>
+              <h3>Parachain runtime templates</h3>
+              <p>Audited, production-ready runtime templates for Polkadot parachains with EVM compatibility: Ethereum pallets, the EVM RPC layer, contract-migration guides, and a deterministic build pipeline kept healthy across Polkadot SDK upgrades.</p>
+              <ul class="tags"><li>Rust</li><li>Polkadot SDK</li><li>Frontier</li><li>srtool</li></ul>
             </div>
           </li>
           <li class="work-item">
             <div class="work-meta">
-              <span class="org">Zama</span>
+              <span class="org">Solana</span>
               <span class="years">2026</span>
             </div>
             <div class="work-body">
-              <h3><a href="https://github.com/zama-ai/fhevm" target="_blank" rel="noopener">fhEVM ↗</a></h3>
-              <p>Solana support for Zama's confidential-compute stack: the permit-based user-decrypt flow (sRFC-38) designed end to end across the host program, KMS connector, relayer and SDK; per-app HCU limits; a Yellowstone gRPC event listener.</p>
-              <ul class="tags"><li>Rust</li><li>Anchor</li><li>FHE</li><li>Solana</li></ul>
+              <h3>Confidential compute with FHE</h3>
+              <p>Fully Homomorphic Encryption brought to Solana programs: a permit-based user-decryption flow designed end to end across the on-chain program, key-management connector, relayer and client SDK; per-application compute limits; gRPC-based event ingestion.</p>
+              <ul class="tags"><li>Rust</li><li>Anchor</li><li>FHE</li><li>gRPC</li></ul>
             </div>
           </li>
           <li class="work-item">
             <div class="work-meta">
-              <span class="org">OpenZeppelin</span>
+              <span class="org">Polkadot</span>
               <span class="years">2024 – 2026</span>
             </div>
             <div class="work-body">
-              <h3><a href="https://github.com/OpenZeppelin/openzeppelin-pallet-abstractions" target="_blank" rel="noopener">Pallet Abstractions ↗</a></h3>
-              <p>Macro wrappers around <code>construct_runtime!</code> and <code>impl_runtime_api!</code> that let teams assemble a runtime from vetted building blocks. Tanssi support, an ERC-20 XCM bridge abstraction, and fee payment in DOT.</p>
+              <h3>Runtime composition tooling</h3>
+              <p>Macro wrappers around <code>construct_runtime!</code> and <code>impl_runtime_api!</code> that let teams assemble a runtime from vetted building blocks. Appchain-platform support, an ERC-20 bridge abstraction over XCM, and fee payment in the relay-chain token.</p>
               <ul class="tags"><li>Rust</li><li>Macros</li><li>XCM</li><li>Tanssi</li></ul>
             </div>
           </li>
           <li class="work-item">
             <div class="work-meta">
-              <span class="org">OpenZeppelin</span>
+              <span class="org">Polkadot · EVM</span>
               <span class="years">2025</span>
             </div>
             <div class="work-body">
-              <h3><a href="https://github.com/OpenZeppelin/openzeppelin-polkadot-xcm" target="_blank" rel="noopener">Cross-chain intents on Polkadot ↗</a></h3>
-              <p>The Open Intents Framework (ERC-7683) adapted to Polkadot with an XCM escrow input settler, so intents can settle across parachains. Hardhat with the Polkadot adapter, EVM target and CI set up from scratch.</p>
+              <h3>Cross-chain intent settlement</h3>
+              <p>ERC-7683 intent settlement adapted to Polkadot with an XCM escrow input settler, so intents can settle across parachains. Hardhat toolchain, EVM target and CI set up from scratch.</p>
               <ul class="tags"><li>Solidity</li><li>XCM</li><li>ERC-7683</li><li>Hardhat</li></ul>
             </div>
           </li>
           <li class="work-item">
             <div class="work-meta">
-              <span class="org">Ecosystem</span>
+              <span class="org">Tooling</span>
               <span class="years">2025 – 2026</span>
             </div>
             <div class="work-body">
-              <h3>Tooling contributions</h3>
-              <p>
-                PolkaVM support in the <a href="https://github.com/OpenZeppelin/openzeppelin-upgrades" target="_blank" rel="noopener">OpenZeppelin Hardhat Upgrades plugin</a>,
-                an ECDSA signature-validation fix in <a href="https://github.com/OpenZeppelin/openzeppelin-contracts" target="_blank" rel="noopener">OpenZeppelin Contracts</a>,
-                and fixes to Parity's <a href="https://github.com/paritytech/revive-remix" target="_blank" rel="noopener">revive-remix</a> IDE.
-              </p>
-              <ul class="tags"><li>TypeScript</li><li>Solidity</li><li>PolkaVM</li></ul>
+              <h3>Developer tooling</h3>
+              <p>PolkaVM support in a smart-contract upgrades plugin, a signature-validation fix in a widely used Solidity library, and fixes to a browser IDE for Solidity-to-PolkaVM compilation.</p>
+              <ul class="tags"><li>TypeScript</li><li>Solidity</li><li>PolkaVM</li><li>revive</li></ul>
             </div>
           </li>
         </ol>
@@ -201,7 +197,7 @@
           </div>
           <div class="term">
             <dt>Who does the work</dt>
-            <dd>All work is performed personally by the principal. The PE has no employees; subcontracting happens only with the client's written agreement.</dd>
+            <dd>All work is performed personally by the lead engineer, Nikita Khateev. The PE has no employees; subcontracting happens only with the client's written agreement.</dd>
           </div>
           <div class="term">
             <dt>Independence &amp; IP</dt>
@@ -211,19 +207,19 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="principal">
+    <section class="section section-alt" id="about">
       <div class="wrap about">
         <div class="section-head">
-          <h2>Principal</h2>
+          <h2>Lead engineer</h2>
         </div>
         <div class="about-body">
-          <p class="principal-name"><strong>Nikita Khateev</strong> <span class="muted">— owner and principal engineer</span></p>
+          <p class="lead-name"><strong>Nikita Khateev</strong> <span class="muted">— owner and lead engineer</span></p>
           <p>
             Nikita is a software engineer who has worked on blockchain systems since 2018,
             starting with Hyperledger Indy identity infrastructure and moving through EVM
-            protocols to Polkadot runtimes and FHE-enabled chains. Since 2023 the practice's
-            main client has been OpenZeppelin, where Nikita contributes as an open-source
-            developer to the Polkadot and Solana tooling.
+            protocols to Polkadot runtimes and FHE-enabled chains. Since founding the practice
+            in 2022 he has delivered long-term engagements as an independent contractor,
+            most of them open source, in the Polkadot, EVM and Solana ecosystems.
           </p>
           <p>
             The work he gravitates to sits between layers: a pallet that has to expose an EVM
@@ -236,7 +232,7 @@
             <ul class="tags tags-lg">
               <li>Rust</li><li>Solidity</li><li>TypeScript</li><li>Python</li>
               <li>Polkadot SDK</li><li>XCM</li><li>Frontier / EVM</li><li>PolkaVM / revive</li>
-              <li>Solana / Anchor</li><li>Arbitrum Stylus</li><li>fhEVM</li>
+              <li>Solana / Anchor</li><li>Arbitrum Stylus</li><li>FHE</li>
               <li>Hardhat</li><li>Foundry</li><li>srtool</li><li>Tanssi</li><li>gRPC</li>
             </ul>
           </div>
