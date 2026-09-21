@@ -16,11 +16,12 @@ Open `index.html` in a browser to preview locally, or run `python3 -m http.serve
 
 ## Custom domain
 
-In the repository settings, open **Pages → Custom domain**, enter the domain and save.
-GitHub commits a `CNAME` file to this repo; keep it. Then point DNS at GitHub Pages:
+The site is served at https://khateev.com/ (custom domain set in Settings → Pages; the `CNAME` file in
+this repo is managed by GitHub, keep it). DNS is hosted at Spaceship:
 
-- Apex domain (`example.com`): `A` records to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
-- Subdomain (`www.example.com`): `CNAME` record to `kithat.github.io`.
+- `A @` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+- `AAAA @` → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+- `CNAME www` → `kithat.github.io`
+- `TXT _github-pages-challenge-KitHat` → verification code from github.com → Settings → Pages
 
-Once DNS resolves, tick **Enforce HTTPS**. After the domain is live, set the `url` field in the
-JSON-LD block in `index.html` to the final address.
+Enforce HTTPS is switched on in Settings → Pages once GitHub has issued the certificate.
