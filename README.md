@@ -2,7 +2,7 @@
 
 Static site for Nikita Khateev PE, an individual entrepreneur registered in the Republic of Armenia
 that provides blockchain-engineering services to clients as an independent contractor.
-Plain HTML and CSS, no build step. Served by GitHub Pages from the `main` branch root.
+Plain HTML and CSS, no build step. Served by GitHub Pages from the `master` branch root of the `KitHat/kithat.github.io` repository (https://kithat.github.io/).
 
 ## Editing
 
