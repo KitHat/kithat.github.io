@@ -251,3 +251,36 @@ nav[aria-label="Primary"] .nav-cta { color: var(--accent); }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+
+/* ---------- Engagement terms ---------- */
+.terms {
+  margin: 0; display: grid; gap: 16px; grid-template-columns: 1fr;
+}
+@media (min-width: 720px) { .terms { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+@media (min-width: 960px) { .terms { grid-template-columns: repeat(3, 1fr); } }
+.term {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px 22px 24px; box-shadow: var(--shadow);
+}
+.term dt {
+  font-family: var(--mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent-strong); margin-bottom: 10px;
+}
+.term dd { margin: 0; color: var(--text-muted); font-size: 15.5px; }
+.principal-name { font-size: 18px; }
+abbr[title] { text-decoration: none; }
+
+/* ---------- Badge & legal footer ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px 6px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent-strong);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  font-family: var(--mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.02em;
+  margin-bottom: 18px;
+}
+.hero .eyebrow { margin-bottom: 20px; display: block; }
+.contact-card .badge { margin-bottom: 20px; }
+.footer-col { display: flex; flex-direction: column; gap: 12px; }
+.legal { font-size: 13px; line-height: 1.6; }
+.legal a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
