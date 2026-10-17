@@ -1,14 +1,16 @@
-// Creates or updates the single login user. Run locally; the password is typed, never stored in files.
-//   SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... node scripts/set-password.mjs
+// Creates or updates the single login user. Run locally from splitwise/ after `supabase login` + `supabase link`:
+//   node scripts/set-password.mjs
+// The password is typed at a hidden prompt; the service role key is fetched by the CLI and kept in memory only.
 import { createClient } from '@supabase/supabase-js';
+import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { createInterface } from 'node:readline';
 
 const EMAIL = 'splitwise@khateev.com';
-const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY } = process.env;
-if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
-  console.error('Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY');
-  process.exit(1);
-}
+const ref = readFileSync(new URL('../supabase/.temp/project-ref', import.meta.url), 'utf8').trim();
+const keys = JSON.parse(execFileSync('npx', ['supabase', 'projects', 'api-keys', '--project-ref', ref, '-o', 'json'], { encoding: 'utf8' }));
+const SUPABASE_URL = `https://${ref}.supabase.co`;
+const SUPABASE_SERVICE_ROLE_KEY = keys.find((k) => k.name === 'service_role').api_key;
 
 function askHidden(question) {
   return new Promise((resolve) => {
