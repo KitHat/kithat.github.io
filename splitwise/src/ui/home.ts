@@ -1,6 +1,7 @@
 import { computeBalances } from '../balance';
 import type { Entry, Member } from '../db';
 import { formatAmount } from '../money';
+import { formatPercent } from '../percent';
 import { h } from './dom';
 
 export interface HomeActions {
@@ -35,7 +36,7 @@ export function homeView(members: [Member, Member], entries: Entry[], actions: H
           : e.description || 'Без описания';
         const meta = e.kind === 'settlement'
           ? 'возврат долга'
-          : `платил(а) ${name(e.paid_by)} · ${Math.round(e.payer_share * 100)}/${100 - Math.round(e.payer_share * 100)}`;
+          : `платил(а) ${name(e.paid_by)} · ${formatPercent(e.payer_share)}/${formatPercent(1 - e.payer_share)}`;
         return h('li', {},
           h('button', { type: 'button', class: `entry ${e.kind}`, onclick: () => actions.onEdit(e) },
             h('span', { class: 'entry-date' }, dateFmt.format(new Date(e.spent_on + 'T00:00:00'))),

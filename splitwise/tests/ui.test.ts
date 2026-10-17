@@ -52,20 +52,37 @@ describe('UI', () => {
     set('select[name=currency]', 'GEL');
     set('input[name=description]', 'Ужин');
     set('.share-number', '60');
-    expect($('.hint').textContent).toBe('Партнёр должен Никита 40.00 ₾');
+    expect($('.hint').textContent).toBe('Михаил должен Никита 40.00 ₾');
     await submit();
 
-    expect($('.balance').textContent).toContain('Партнёр должен Никита');
+    expect($('.balance').textContent).toContain('Михаил должен Никита');
     expect($('.balance').textContent).toContain('40.00 ₾');
     expect(text()).toContain('Ужин');
 
     button('Вернуть долг').click();
     expect($<HTMLInputElement>('input[name=amount]').value).toBe('40.00');
     expect($<HTMLSelectElement>('select[name=currency]').value).toBe('GEL');
-    expect($<HTMLSelectElement>('select[name=paid_by]').selectedOptions[0]!.textContent).toBe('Партнёр');
+    expect($<HTMLSelectElement>('select[name=paid_by]').selectedOptions[0]!.textContent).toBe('Михаил');
     await submit();
 
     expect(text()).toContain('Всё в расчёте');
+  });
+
+  it('accepts a fractional payer share and rejects one with too many decimals', async () => {
+    set('input[type=password]', 'ok');
+    await submit();
+    button('+ Расход').click();
+    set('input[name=amount]', '100');
+    set('select[name=currency]', 'USD');
+    set('.share-number', '33,333');
+    await submit();
+    expect($('.field-error').textContent).toContain('Доля');
+
+    set('.share-number', '33,33');
+    expect($('.hint').textContent).toBe('Михаил должен Никита $66.67');
+    await submit();
+    expect($('.balance').textContent).toContain('$66.67');
+    expect($('.entry-meta').textContent).toContain('33.33/66.67');
   });
 
   it('refuses an invalid amount without leaving the form', async () => {

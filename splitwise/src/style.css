@@ -76,7 +76,8 @@ input[type="range"] { padding: 0; border: 0; background: none; accent-color: var
 .row > label { min-width: 0; }
 .grow { flex: 1; }
 .share { display: flex; align-items: center; gap: 12px; }
-.share-number { width: 80px; flex: none; }
+.share-number { width: 88px; flex: none; }
+.share-number[aria-invalid] { border-color: var(--danger); }
 .hint { font-size: 0.9375rem; min-height: 1.5em; }
 .field-error { color: var(--danger); font-size: 0.875rem; min-height: 1.25em; }
 .field-error:empty, .hint:empty { min-height: 0; }

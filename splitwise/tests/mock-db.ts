@@ -5,7 +5,7 @@ export type EntryKind = 'expense' | 'settlement';
 export type Entry = { id: string; kind: EntryKind; description: string; amount: number; currency: any; paid_by: string; payer_share: number; spent_on: string; created_at: string };
 export type EntryInput = Omit<Entry, 'id' | 'created_at'>;
 let session: any = null; let cb: (s: any) => void = () => {};
-const members: Member[] = [{ id: 'm1', name: 'Никита', position: 1 }, { id: 'm2', name: 'Партнёр', position: 2 }];
+const members: Member[] = [{ id: 'm1', name: 'Никита', position: 1 }, { id: 'm2', name: 'Михаил', position: 2 }];
 let entries: Entry[] = [];
 export async function signIn(p: string) { if (p !== 'ok') throw new DbError('Неверный пароль', true); session = { user: { id: 'u' } }; cb(session); }
 export async function signOut() { session = null; cb(null); }
