@@ -2,7 +2,8 @@
 
 Static site for Nikita Khateev PE, an individual entrepreneur registered in the Republic of Armenia
 that provides blockchain-engineering services to clients as an independent contractor.
-Plain HTML and CSS, no build step. Served by GitHub Pages from the `master` branch root of the `KitHat/kithat.github.io` repository (https://kithat.github.io/).
+The business page is plain HTML and CSS. GitHub Actions (`.github/workflows/pages.yml`) publishes it together with the
+`splitwise/` app on every push to `master` of `KitHat/kithat.github.io` (Settings → Pages → Source: GitHub Actions).
 
 ## Editing
 
@@ -25,3 +26,17 @@ this repo is managed by GitHub, keep it). DNS is hosted at Spaceship:
 - `TXT _github-pages-challenge-KitHat` → verification code from github.com → Settings → Pages
 
 Enforce HTTPS is switched on in Settings → Pages once GitHub has issued the certificate.
+
+## Splitwise (`/splitwise/`)
+
+A two-person expense splitter (Vite + TypeScript) backed by Supabase project `rgjwdmqgfyoifrgbpdna`
+(org "Nikita Khateev", eu-central-1). Design: `docs/superpowers/specs/2026-10-17-splitwise-design.md`.
+
+- One login user `splitwise@khateev.com`; signups are disabled; RLS allows only authenticated access.
+- Change the password (run in a normal terminal, it prompts):
+  `cd splitwise && node scripts/set-password.mjs`
+- Local dev: `cd splitwise && npm i && npm run dev` (needs `.env.local`, see `.env.example`).
+- Tests: `npm test`. Schema changes: add a file in `supabase/migrations/`, run `npx supabase db push`,
+  then `npm run gen:types`.
+- The database password lives in the macOS keychain: `security find-generic-password -a splitwise -s supabase-splitwise-db -w`.
+- CI reads `SUPABASE_URL` and `SUPABASE_ANON_KEY` from repository Actions variables.
