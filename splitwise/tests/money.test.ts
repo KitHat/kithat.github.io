@@ -26,5 +26,6 @@ describe('formatAmount', () => {
     expect(formatAmount(1250, 'USD')).toBe('$12.50');
     expect(formatAmount(120050, 'GEL')).toBe('1 200.50 ₾');
     expect(formatAmount(5, 'TRY')).toBe('0.05 ₺');
+    expect(formatAmount(99900, 'EUR')).toBe('999.00 €');
   });
 });

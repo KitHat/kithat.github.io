@@ -14,7 +14,7 @@ through the typed `src/db.ts`; balance math lives in the pure, tested `src/balan
 
 ## Global Constraints
 
-- Currencies: exactly `USD`, `GEL`, `TRY`; amounts stored as integer minor units (2 digits).
+- Currencies: exactly `TRY` (default), `USD`, `EUR`, `GEL`; amounts stored as integer minor units (2 digits).
 - Auth email constant: `splitwise@khateev.com`; signups disabled; RLS `to authenticated` on all tables.
 - Vite `base: '/splitwise/'`.
 - No secrets in the repo; anon key + URL come from `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`.

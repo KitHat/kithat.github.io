@@ -26,6 +26,7 @@ async function submit() {
 describe('UI', () => {
   beforeEach(async () => {
     vi.resetModules();
+    localStorage.clear();
     // Reset through the same mocked module instance the app imports.
     ((await import('../src/db')) as unknown as typeof import('./mock-db')).reset();
     document.body.innerHTML = '<div id="app"></div>';
@@ -48,6 +49,7 @@ describe('UI', () => {
     await submit();
 
     button('+ Расход').click();
+    expect($<HTMLSelectElement>('select[name=currency]').value).toBe('TRY');
     set('input[name=amount]', '100,00');
     set('select[name=currency]', 'GEL');
     set('input[name=description]', 'Ужин');

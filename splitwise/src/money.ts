@@ -4,6 +4,7 @@ const SYMBOLS: Record<Currency, { sign: string; prefix: boolean }> = {
   USD: { sign: '$', prefix: true },
   GEL: { sign: '₾', prefix: false },
   TRY: { sign: '₺', prefix: false },
+  EUR: { sign: '€', prefix: false },
 };
 
 /** Parses user input like "12,5" or "1 200.50" into minor units. Returns null for anything invalid or not positive. */

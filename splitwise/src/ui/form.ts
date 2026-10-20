@@ -2,7 +2,7 @@ import type { Balance } from '../balance';
 import type { Entry, EntryInput, EntryKind, Member } from '../db';
 import { formatAmount, parseAmount, toInputValue } from '../money';
 import { formatPercent, parsePercent } from '../percent';
-import { CURRENCIES, type Currency } from '../types';
+import { CURRENCIES, DEFAULT_CURRENCY, type Currency } from '../types';
 import { h } from './dom';
 
 export interface FormActions {
@@ -18,7 +18,7 @@ function lastCurrency(): Currency {
     const v = localStorage.getItem(LAST_CURRENCY_KEY);
     if (v && (CURRENCIES as readonly string[]).includes(v)) return v as Currency;
   } catch { /* storage unavailable */ }
-  return 'USD';
+  return DEFAULT_CURRENCY;
 }
 
 function rememberCurrency(c: Currency): void {
@@ -47,11 +47,11 @@ export function entryFormView(
     type: 'text', inputmode: 'decimal', name: 'amount', required: true, autocomplete: 'off', placeholder: '0.00',
     value: existing ? toInputValue(existing.amount) : debt ? toInputValue(debt.amount) : undefined,
   });
-  const currency = h('select', { name: 'currency' },
-    ...CURRENCIES.map((c) => h('option', { value: c, selected: c === initialCurrency }, c)));
+  const currency = h('select', { name: 'currency' }, ...CURRENCIES.map((c) => h('option', { value: c }, c)));
+  currency.value = initialCurrency;
   const description = h('input', { type: 'text', name: 'description', value: existing?.description, placeholder: 'Ужин, такси…', maxlength: 200 });
-  const payer = h('select', { name: 'paid_by' },
-    ...members.map((m) => h('option', { value: m.id, selected: m.id === initialPayer }, m.name)));
+  const payer = h('select', { name: 'paid_by' }, ...members.map((m) => h('option', { value: m.id }, m.name)));
+  payer.value = initialPayer;
   const shareRange = h('input', { type: 'range', min: 0, max: 100, step: 1, value: share * 100, 'aria-label': 'Доля плательщика' });
   const shareNumber = h('input', { type: 'text', inputmode: 'decimal', value: formatPercent(share), class: 'share-number', 'aria-label': 'Доля плательщика, %' });
   const date = h('input', { type: 'date', name: 'spent_on', required: true, value: existing?.spent_on ?? today() });

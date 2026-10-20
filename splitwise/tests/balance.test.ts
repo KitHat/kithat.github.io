@@ -40,13 +40,14 @@ describe('computeBalances', () => {
 
   it('keeps currencies independent and in a stable order', () => {
     const r = computeBalances(
-      [e(2000, A, 0.5, 'TRY'), e(1000, B, 0.5, 'USD'), e(400, A, 0.25, 'GEL')],
+      [e(2000, A, 0.5, 'TRY'), e(1000, B, 0.5, 'USD'), e(400, A, 0.25, 'GEL'), e(600, B, 0.5, 'EUR')],
       members,
     );
     expect(r).toEqual([
-      { currency: 'USD', debtor: A, creditor: B, amount: 500 },
-      { currency: 'GEL', debtor: B, creditor: A, amount: 300 },
       { currency: 'TRY', debtor: B, creditor: A, amount: 1000 },
+      { currency: 'USD', debtor: A, creditor: B, amount: 500 },
+      { currency: 'EUR', debtor: A, creditor: B, amount: 300 },
+      { currency: 'GEL', debtor: B, creditor: A, amount: 300 },
     ]);
   });
 });
